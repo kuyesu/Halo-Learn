@@ -35,13 +35,13 @@ SECRET_KEY = 'django-insecure-o4-nj8i088yuzqt6wu02u9yia@vl+(5nb!r345gco28%=+k$%-
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-# CSRF_COOKIE_SECURE = True
-# SESSION_COOKIE_SECURE = True
-# SECURE_SSL_REDIRECT = True
-# SECURE_HSTS_SECONDS = 31536000
-# SECURE_CONTENT_TYPE_NOSNIFF = True
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_SECONDS = 31536000
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 # DEBUG = False
 SECURE_HSTS_PRELOAD = True
 ALLOWED_HOSTS = ['*', 'halo-devs.net', '172.0.0.1', 'halo-devs.herokuapp.com']
@@ -116,11 +116,10 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default="sqlite:///{}".format(
-            os.path.join(BASE_DIR, 'db.sqlite3')
-        )
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 
 
